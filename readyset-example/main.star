@@ -10,8 +10,8 @@ PYTHON_SERVICE_NAME="benchmark"
 UPSTREAM_DB_URL_KEY = "upstream_db_url"
 
 MYSQL_DATABASE_TYPE = "mysql"
-BENCHMARK_FILE_LOCATION = "github.com/kurtosis-tech/awesome-kurtosis/readyset-example/benchmark.py"
-POSTGRES_SEED_FILE_LOCATION = "github.com/kurtosis-tech/awesome-kurtosis/readyset-example/seed/postgres_long.sql"
+BENCHMARK_FILE_LOCATION = "./benchmark.py"
+POSTGRES_SEED_FILE_LOCATION = "./seed/postgres_long.sql"
 QUERY_TO_CACHE = "CREATE CACHE FROM SELECT count(*) FROM title_ratings JOIN title_basics ON title_ratings.tconst = title_basics.tconst WHERE title_basics.startyear = 2000 AND title_ratings.averagerating > 5;"
 
 def run_local_postgres(plan):
@@ -118,7 +118,7 @@ def run(plan, args):
         # })
         # return struct(readyset=readyset_data, mysql=mysql_data)
     
-    # This is default behaviour to show how kurtosis can simpilfy creating isolated and consistent enviornments with same initial state
+    # This is default behaviour to show how kurtosis can simpilfy creating isolated and consistent environments with same initial state
     # We can run same set of services under same condition multiple times either locally or on cloud. If you are interested in learning more
     # about cloud offering, please reach out to us. 
     postgres_data = run_local_postgres(plan)
